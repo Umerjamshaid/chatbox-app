@@ -1,0 +1,89 @@
+SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: const Text(
+                      'Sign up with mail',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                // Login link
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const SignInScreen(),
+                      ),
+                    );
+                  },
+                  child: const Text.rich(
+                    TextSpan(
+                      text: 'Existing account? ',
+                      style: TextStyle(color: Colors.white70),
+                      children: [
+                        TextSpan(
+                          text: 'Log in',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                const Spacer(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _socialIcon(String assetPath) {
+    return Container(
+      height: 48,
+      width: 48,
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white12,
+      ),
+      child: Center(
+        child: Image.asset(
+          assetPath,
+          height: 24,
+          width: 24,
+        ),
+      ),
+
+
+
+
+
+
+
+
+
+
+
+
+decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF43116A), Color(0xFF0A1832)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
