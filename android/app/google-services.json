@@ -1,65 +1,26 @@
 {
   "project_info": {
-    "project_number": "723171376139",
-    "project_id": "pipfa-13449",
-    "storage_bucket": "pipfa-13449.firebasestorage.app"
+    "project_number": "940806540627",
+    "project_id": "chatbox-dd7b7",
+    "storage_bucket": "chatbox-dd7b7.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:723171376139:android:f911e343ffd04a6f949b0e",
+        "mobilesdk_app_id": "1:940806540627:android:32715e70ff5386928765a6",
         "android_client_info": {
           "package_name": "com.example.chatbox"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "723171376139-oit9r0thu9j43lbg332b1im8b7vbfqnk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBpbEzoMa8m0KYJjX0Po66ZNAgGUflWg6M"
+          "current_key": "AIzaSyBxLkhWXJBOfPGdwrlG3I77sPepTavzpHE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "723171376139-oit9r0thu9j43lbg332b1im8b7vbfqnk.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:723171376139:android:198c4c657b32c107949b0e",
-        "android_client_info": {
-          "package_name": "com.mycompany.myapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "723171376139-oit9r0thu9j43lbg332b1im8b7vbfqnk.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBpbEzoMa8m0KYJjX0Po66ZNAgGUflWg6M"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "723171376139-oit9r0thu9j43lbg332b1im8b7vbfqnk.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

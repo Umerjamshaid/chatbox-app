@@ -1,6 +1,7 @@
 import 'package:chatbox/forgot_password.dart';
 import 'package:chatbox/onboarding_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -13,13 +14,40 @@ class LoginInScreen extends StatefulWidget {
 
 class _LoginInScreenState extends State<LoginInScreen> {
   @override
-
-  final db = FirebaseFirestore.instance;
+  // Initialize controllers for email and password fields
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-
-
+  void Login() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      // Navigate to the home screen after successful login
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const ForgotPassword()),
+      );
+    } on FirebaseAuthException catch (e) {
+      // Handle login errors
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('No user found for that email.')),
+        );
+      } else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Wrong password provided for that user.'),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error: ${e.message}')));
+      }
+    }
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +55,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         title: const Text(
-          "Forgot Password",
+          "Login",
           style: TextStyle(color: Color(0xFF757575)),
         ),
       ),
@@ -144,39 +172,17 @@ class _LoginInScreenState extends State<LoginInScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () async {
-                      // Handle login logic here
-                      if(emailController == "" || passwordController == "" )
-                      {
+                    onPressed: () {
+                      if (emailController.text.isEmpty ||
+                          passwordController.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Please fill in all fields'),
+                            content: Text('Please fill in all fields.'),
                           ),
                         );
+                      } else {
+                        Login(); // Call the login function
                       }
-                      else {
-                        try {
-                          // Example login logic (replace with your own)
-                          final user = await db.collection('user_login').doc(emailController.text).get();
-                          if (user.exists) {
-                            // Navigate to home screen or dashboard
-                            Navigator.pushReplacementNamed(context, '/forgot_password');
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('User not found'),
-                              ),
-                            );
-                          }
-                        } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Login failed: $e'),
-                            ),
-                          );
-                        }
-                      }
-
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: const Color(0xff797C7B),

@@ -50,21 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBpbEzoMa8m0KYJjX0Po66ZNAgGUflWg6M',
-    appId: '1:723171376139:android:f911e343ffd04a6f949b0e',
-    messagingSenderId: '723171376139',
-    projectId: 'pipfa-13449',
-    storageBucket: 'pipfa-13449.firebasestorage.app',
+    apiKey: 'AIzaSyBxLkhWXJBOfPGdwrlG3I77sPepTavzpHE',
+    appId: '1:940806540627:android:32715e70ff5386928765a6',
+    messagingSenderId: '940806540627',
+    projectId: 'chatbox-dd7b7',
+    storageBucket: 'chatbox-dd7b7.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAYdS3qYqaRbWGrP7btxCYcVmHae23vV8k',
-    appId: '1:723171376139:ios:27afec6e4826edb6949b0e',
-    messagingSenderId: '723171376139',
-    projectId: 'pipfa-13449',
-    storageBucket: 'pipfa-13449.firebasestorage.app',
-    androidClientId: '723171376139-0vcv17mb9n35m2ki6k7dut3eqa1hf5eu.apps.googleusercontent.com',
-    iosClientId: '723171376139-00p97odtv7jtdl7givlkb3css0ub9mct.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAab6FrNns5wGE1k7v6u2z9VNXj66nAang',
+    appId: '1:940806540627:ios:a5e3c9e7c7d090ac8765a6',
+    messagingSenderId: '940806540627',
+    projectId: 'chatbox-dd7b7',
+    storageBucket: 'chatbox-dd7b7.firebasestorage.app',
     iosBundleId: 'com.example.chatbox',
   );
+
 }
