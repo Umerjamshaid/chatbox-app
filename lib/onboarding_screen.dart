@@ -1,3 +1,4 @@
+import 'package:chatbox/SignUp.dart';
 import 'package:chatbox/login_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -133,7 +134,14 @@ class OnboardingScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const Signup(),
+                              ),
+                          );
+                        },
                         child: const Text('Sign up with mail'),
 
                       ),

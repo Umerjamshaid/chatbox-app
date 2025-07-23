@@ -12,7 +12,12 @@
           "package_name": "com.example.chatbox"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "940806540627-hckb9usdbcpaurhspn0lk2ff0ktmogg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBxLkhWXJBOfPGdwrlG3I77sPepTavzpHE"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940806540627-hckb9usdbcpaurhspn0lk2ff0ktmogg1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "940806540627-hb1kso1hm7d5vmjscsbqad023f2lfkqp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chatbox"
+              }
+            }
+          ]
         }
       }
     }

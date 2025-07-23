@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '940806540627',
     projectId: 'chatbox-dd7b7',
     storageBucket: 'chatbox-dd7b7.firebasestorage.app',
+    iosClientId: '940806540627-hb1kso1hm7d5vmjscsbqad023f2lfkqp.apps.googleusercontent.com',
     iosBundleId: 'com.example.chatbox',
   );
 
