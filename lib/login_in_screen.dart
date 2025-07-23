@@ -1,3 +1,4 @@
+import 'package:chatbox/Home.dart';
 import 'package:chatbox/forgot_password.dart';
 import 'package:chatbox/onboarding_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,51 +14,41 @@ class LoginInScreen extends StatefulWidget {
 }
 
 class _LoginInScreenState extends State<LoginInScreen> {
-  @override
   // Initialize controllers for email and password fields
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailctlr = TextEditingController();
+  final passwordctlr = TextEditingController();
 
   void Login() async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailctlr.text,
+        password: passwordctlr.text,
       );
-      // Navigate to the home screen after successful login
+      // If login is successful, navigate to the Home screen
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const ForgotPassword()),
+        MaterialPageRoute(builder: (context) => HomeScreen()),
       );
     } on FirebaseAuthException catch (e) {
-      // Handle login errors
-      if (e.code == 'user-not-found') {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('No user found for that email.')),
-        );
-      } else if (e.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Wrong password provided for that user.'),
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            e.code == 'user-not-found'
+                ? 'No user found for that email.'
+                : e.message ?? 'Login failed.',
           ),
-        );
-      } else {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text('Error: ${e.message}')));
-      }
+        ),
+      );
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: const Text(
-          "Login",
-          style: TextStyle(color: Color(0xFF757575)),
-        ),
+        title: const Text("Login", style: TextStyle(color: Color(0xFF757575))),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -144,7 +135,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
 
                 // Email TextField
                 TextField(
-                  controller: emailController,
+                  controller: emailctlr,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: 'Email',
@@ -157,7 +148,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
 
                 // Password TextField
                 TextField(
-                  controller: passwordController,
+                  controller: passwordctlr,
                   obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Password',
@@ -173,16 +164,7 @@ class _LoginInScreenState extends State<LoginInScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (emailController.text.isEmpty ||
-                          passwordController.text.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Please fill in all fields.'),
-                          ),
-                        );
-                      } else {
-                        Login(); // Call the login function
-                      }
+                      Login(); // Call the login function when pressed
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: const Color(0xff797C7B),
