@@ -1,4 +1,7 @@
+import 'package:chatbox/Home.dart';
+import 'package:chatbox/login_in_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,6 +12,25 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  Future<void> checkLoginStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+
+    await Future.delayed(const Duration(seconds: 2));
+
+    if (isLoggedIn) {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) =>  HomeScreen()));
+    } else {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginInScreen()));
+    }
+  }
+
+
+
+
+
+
   @override
   void initState() {
     super.initState();

@@ -1,27 +1,35 @@
-import 'package:chatbox/Splash_Screen.dart';
+import 'package:chatbox/Home.dart';
+import 'package:chatbox/login_in_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-
-  // Ensure that Flutter bindings are initialized before running the app
+  // Ensure that Flutter bindings are initialized before using Firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // Initialize Firebase or any other services if needed
-  runApp(MyApp());
+
+  // Check login status from SharedPreferences
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+
+  runApp(MyApp(isLoggedIn: isLoggedIn));
 }
 
+// Main application widget
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isLoggedIn;
+  const MyApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ChatBox',
       theme: ThemeData(fontFamily: 'Helvetica'),
-      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
+      home: isLoggedIn ? HomeScreen() : LoginInScreen(),
     );
   }
 }
+

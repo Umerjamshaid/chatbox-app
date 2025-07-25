@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginInScreen extends StatefulWidget {
   const LoginInScreen({super.key});
@@ -24,6 +25,11 @@ class _LoginInScreenState extends State<LoginInScreen> {
         email: emailctlr.text,
         password: passwordctlr.text,
       );
+      //save user login state
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('isLoggedIn', true);
+      final user = FirebaseAuth.instance.currentUser;
+
       // If login is successful, navigate to the Home screen
       Navigator.pushReplacement(
         context,
