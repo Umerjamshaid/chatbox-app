@@ -1,4 +1,4 @@
-import 'package:chatbox/presentation/Screens/Message_screen.dart';
+import 'package:chatbox/presentation/screens/Message_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';

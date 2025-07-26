@@ -1,8 +1,8 @@
-import 'package:chatbox/presentation/Screens/Home.dart';
-import 'package:chatbox/presentation/Screens/login_in_screen.dart';
+import 'package:chatbox/presentation/screens/Home.dart';
+import 'package:chatbox/presentation/screens/login_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../presentation/Screens/onboarding_screen.dart';
+import '../../presentation/screens/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

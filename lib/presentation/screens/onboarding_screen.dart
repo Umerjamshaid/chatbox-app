@@ -1,5 +1,5 @@
-import 'package:chatbox/presentation/Screens/SignUp.dart';
-import 'package:chatbox/presentation/Screens/login_in_screen.dart';
+import 'package:chatbox/presentation/screens/SignUp.dart';
+import 'package:chatbox/presentation/screens/login_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -135,7 +135,7 @@ class OnboardingScreen extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (_) => const Signup(),

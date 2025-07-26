@@ -1,6 +1,6 @@
-import 'package:chatbox/presentation/Screens/Home.dart';
-import 'package:chatbox/presentation/Screens/forgot_password.dart';
-import 'package:chatbox/presentation/Screens/onboarding_screen.dart';
+import 'package:chatbox/presentation/screens/Home.dart';
+import 'package:chatbox/presentation/screens/forgot_password.dart';
+import 'package:chatbox/presentation/screens/onboarding_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
