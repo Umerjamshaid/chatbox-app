@@ -1,7 +1,3 @@
-Here’s a polished and **professional version** of your `README.md` for the ChatBox Flutter project, combining your original intro with the improved folder structure and guidance:
-
----
-
 # 📱 ChatBox - Flutter Messaging App
 
 ChatBox is a modern messaging app built using **Flutter** and **Firebase**, designed to be clean, scalable, and beginner-friendly. This project is perfect for learning how to integrate authentication, Firestore, and reusable UI components in a real-world Flutter app.
@@ -113,7 +109,4 @@ Want to:
 * Set up Firebase Auth or Firestore properly?
 * Create reusable widgets or models?
 
-Let me know — I’d be happy to assist in building your app the clean way.
-
----
 
