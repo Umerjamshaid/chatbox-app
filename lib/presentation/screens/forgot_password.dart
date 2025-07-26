@@ -1,4 +1,4 @@
-import 'package:chatbox/onboarding_screen.dart';
+import 'package:chatbox/presentation/Screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 // TODO: add flutter_svg package

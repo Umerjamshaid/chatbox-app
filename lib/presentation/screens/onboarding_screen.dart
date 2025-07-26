@@ -1,5 +1,5 @@
-import 'package:chatbox/SignUp.dart';
-import 'package:chatbox/login_in_screen.dart';
+import 'package:chatbox/presentation/Screens/SignUp.dart';
+import 'package:chatbox/presentation/Screens/login_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
